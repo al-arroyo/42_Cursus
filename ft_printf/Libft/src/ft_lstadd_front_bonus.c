@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alarroyo <alarroyo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/01 09:37:06 by alarroyo          #+#    #+#             */
-/*   Updated: 2023/04/01 10:52:25 by alarroyo         ###   ########.fr       */
+/*   Created: 2022/10/06 19:50:58 by alarroyo          #+#    #+#             */
+/*   Updated: 2022/10/09 19:33:17 by alarroyo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdarg.h>
-
-int	ft_printf(char const *str, ...);
-int	ft_printchar(va_list args);
-int	ft_print_void(va_list args);
-int	ft_print_str(va_list args);
-int	ft_print_hex(char c, va_list args);
-int	ft_print_percent(void);
-int	ft_print_base(va_list args);
-
-#endif
+/**
+ * Adds a new element to the beginning of a list.
+ * 
+ * @param lst A pointer to a pointer to a linked list.
+ * @param new the new element to add to the list
+ */
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	if (lst && new)
+	{
+		new->next = *lst;
+		*lst = new;
+	}
+}

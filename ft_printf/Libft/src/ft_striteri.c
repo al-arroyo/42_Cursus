@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printchar.c                                     :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alarroyo <alarroyo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/23 15:30:09 by alarroyo          #+#    #+#             */
-/*   Updated: 2023/04/01 12:26:06 by alarroyo         ###   ########.fr       */
+/*   Created: 2022/10/06 19:27:33 by alarroyo          #+#    #+#             */
+/*   Updated: 2022/10/12 13:02:44 by alarroyo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "libft.h"
 
 /**
- * It writes a single character to the standard output
+ * Iterate through the string `s` and apply the function `f` 
+ * to each character, passing the index of
+ * the character as the first argument
  * 
- * @param c the character to print
+ * @param s The string to iterate through.
+ * @param f The function to be applied to each character of the string.
  * 
- * @return The number of bytes written.
+ * @return Nothing.
  */
-int	ft_printchar(va_list args)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	if (args == 0)
-		return (0);
-	ft_putchar_fd((unsigned char) va_arg(args, int), 1);
-	return (1);
+	unsigned int	i;
+
+	if (!s || !f)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }

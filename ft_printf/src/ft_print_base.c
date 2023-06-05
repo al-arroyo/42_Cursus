@@ -6,16 +6,17 @@
 /*   By: alarroyo <alarroyo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 16:07:58 by alarroyo          #+#    #+#             */
-/*   Updated: 2023/04/01 10:47:32 by alarroyo         ###   ########.fr       */
+/*   Updated: 2023/04/01 15:15:09 by alarroyo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft.h"
 
 size_t	ft_c_digits(unsigned int n);
 size_t	ft_len(int n);
 
-int	ft_print_base(char c, va_list args)
+int	ft_print_base(va_list args)
 {
 	size_t	len;
 	size_t	n;
@@ -24,7 +25,7 @@ int	ft_print_base(char c, va_list args)
 		return (0);
 	n = va_arg(args, int);
 	len = ft_len(n);
-	ft_putnb_fd(n, 1);
+	ft_putnbr_fd(n, 1);
 	return (len);
 }
 

@@ -6,11 +6,12 @@
 /*   By: alarroyo <alarroyo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 11:33:56 by alarroyo          #+#    #+#             */
-/*   Updated: 2023/04/01 10:47:29 by alarroyo         ###   ########.fr       */
+/*   Updated: 2023/04/01 12:41:59 by alarroyo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft.h"
 
 int	ft_control(va_list args, const char c);
 
@@ -48,12 +49,12 @@ int	ft_control(va_list args, const char c)
 		return (ft_print_str(args));
 	else if (c == 'p')
 		return (ft_print_void(args));
-	else if (c == 'd')
-		return (ft_print_int(args));
-	else if (c == 'u' || c == 'i')
-		return (ft_print_base(c, args));
+	else if (c == 'u' || c == 'i' || c == 'd')
+		return (ft_print_base(args));
 	else if (c == 'x' || c == 'X')
 		return (ft_print_hex(c, args));
 	else if (c == '%')
 		return (ft_print_percent());
+	else
+		return (0);
 }

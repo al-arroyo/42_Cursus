@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alarroyo <alarroyo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/01 09:37:06 by alarroyo          #+#    #+#             */
-/*   Updated: 2023/04/01 10:52:25 by alarroyo         ###   ########.fr       */
+/*   Created: 2022/09/23 14:37:56 by alarroyo          #+#    #+#             */
+/*   Updated: 2022/10/12 13:01:16 by alarroyo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdarg.h>
+/**
+ * Write the string s to the file descriptor fd, followed by a newline
+ * 
+ * @param s The string to output.
+ * @param fd file descriptor
+ */
+void	ft_putendl_fd(char *s, int fd)
+{
+	int	i;
 
-int	ft_printf(char const *str, ...);
-int	ft_printchar(va_list args);
-int	ft_print_void(va_list args);
-int	ft_print_str(va_list args);
-int	ft_print_hex(char c, va_list args);
-int	ft_print_percent(void);
-int	ft_print_base(va_list args);
-
-#endif
+	i = 0;
+	while (s[i] != 0)
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+	write(fd, "\n", 1);
+}

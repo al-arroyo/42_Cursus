@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alarroyo <alarroyo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/01 09:37:06 by alarroyo          #+#    #+#             */
-/*   Updated: 2023/04/01 10:52:25 by alarroyo         ###   ########.fr       */
+/*   Created: 2022/10/12 10:58:51 by alarroyo          #+#    #+#             */
+/*   Updated: 2022/10/12 11:38:46 by alarroyo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdarg.h>
+/**
+ * It returns the number of elements in a linked list
+ * 
+ * @param lst A pointer to the first element of a linked list.
+ * 
+ * @return The size of the list.
+ */
+int	ft_lstsize(t_list *lst)
+{
+	int	size;
 
-int	ft_printf(char const *str, ...);
-int	ft_printchar(va_list args);
-int	ft_print_void(va_list args);
-int	ft_print_str(va_list args);
-int	ft_print_hex(char c, va_list args);
-int	ft_print_percent(void);
-int	ft_print_base(va_list args);
-
-#endif
+	size = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		size++;
+	}
+	return (size);
+}

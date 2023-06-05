@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alarroyo <alarroyo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/01 09:37:06 by alarroyo          #+#    #+#             */
-/*   Updated: 2023/04/01 10:52:25 by alarroyo         ###   ########.fr       */
+/*   Created: 2022/10/06 18:46:58 by alarroyo          #+#    #+#             */
+/*   Updated: 2022/10/09 18:46:58 by alarroyo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdarg.h>
+/**
+ * Create a new list node with the given content
+ * 
+ * @param content The content of the new list element.
+ * 
+ * @return A pointer to a new list.
+ */
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*lists;
 
-int	ft_printf(char const *str, ...);
-int	ft_printchar(va_list args);
-int	ft_print_void(va_list args);
-int	ft_print_str(va_list args);
-int	ft_print_hex(char c, va_list args);
-int	ft_print_percent(void);
-int	ft_print_base(va_list args);
-
-#endif
+	lists = malloc(sizeof(t_list));
+	if (!lists)
+		return (NULL);
+	lists->content = content;
+	lists->next = NULL;
+	return (lists);
+}

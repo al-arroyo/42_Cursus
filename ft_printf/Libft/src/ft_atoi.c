@@ -1,29 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printchar.c                                     :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alarroyo <alarroyo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/23 15:30:09 by alarroyo          #+#    #+#             */
-/*   Updated: 2023/04/01 12:26:06 by alarroyo         ###   ########.fr       */
+/*   Created: 2022/09/14 13:33:35 by alarroyo          #+#    #+#             */
+/*   Updated: 2022/10/09 19:25:59 by alarroyo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "libft.h"
 
 /**
- * It writes a single character to the standard output
+ * It takes a string and returns an integer
  * 
- * @param c the character to print
+ * @param str The string to be converted.
  * 
- * @return The number of bytes written.
+ * @return The number of characters in the string.
  */
-int	ft_printchar(va_list args)
+int	ft_atoi(const char *str)
 {
-	if (args == 0)
-		return (0);
-	ft_putchar_fd((unsigned char) va_arg(args, int), 1);
-	return (1);
+	int	s;
+	int	r;
+
+	s = 1;
+	r = 0;
+	while (*str == 32 || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-')
+		s *= -1;
+	if (*str == '-' || *str == '+')
+		str++;
+	while (*str >= '0' && *str <= '9')
+	{
+		r = r * 10 + *str - '0';
+		str++;
+	}	
+	return (r * s);
 }

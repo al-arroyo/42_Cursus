@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_void.c                                    :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alarroyo <alarroyo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/23 16:07:03 by alarroyo          #+#    #+#             */
-/*   Updated: 2023/04/01 12:26:01 by alarroyo         ###   ########.fr       */
+/*   Created: 2022/09/14 14:57:27 by alarroyo          #+#    #+#             */
+/*   Updated: 2022/10/12 13:02:23 by alarroyo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "libft.h"
 
-size_t	ft_count_d(unsigned int n);
-
-int	ft_print_void(va_list args)
+/**
+ * It copies the string s into a new string.
+ * 
+ * @param s The string to be copied.
+ * 
+ * @return A pointer to a copy of the string s.
+ */
+char	*ft_strdup(const char *s)
 {
-	size_t			len;
+	char	*aux;
+	size_t	size;
+	char	*aux2;
 
-	len = ft_count_d(va_arg(args, unsigned int));
-	ft_putstr_fd("0x", 1);
-	ft_print_hex('x', args);
-	return (len);
-}
-
-size_t	ft_count_d(unsigned int n)
-{
-	size_t	digits;
-
-	digits = 0;
-	while (n > 0)
+	size = ft_strlen(s) + 1;
+	aux = (char *) malloc (size * sizeof(char));
+	aux2 = aux;
+	if (!aux)
+		return (NULL);
+	while (size > 1)
 	{
-		n /= 16;
-		digits++;
+		*aux = (char)*s;
+		aux++;
+		s++;
+		size--;
 	}
-	return (digits);
+	*aux = 0;
+	return (aux2);
 }

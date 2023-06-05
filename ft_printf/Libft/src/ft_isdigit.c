@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alarroyo <alarroyo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/01 09:37:06 by alarroyo          #+#    #+#             */
-/*   Updated: 2023/04/01 10:52:25 by alarroyo         ###   ########.fr       */
+/*   Created: 2022/09/14 12:50:02 by alarroyo          #+#    #+#             */
+/*   Updated: 2022/10/12 12:57:22 by alarroyo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <stdarg.h>
-
-int	ft_printf(char const *str, ...);
-int	ft_printchar(va_list args);
-int	ft_print_void(va_list args);
-int	ft_print_str(va_list args);
-int	ft_print_hex(char c, va_list args);
-int	ft_print_percent(void);
-int	ft_print_base(va_list args);
-
-#endif
+/**
+ * It checks if the character is a digit.
+ * 
+ * @param c The character to be checked.
+ * 
+ * @return 1 if true, 0 if false
+ */
+int	ft_isdigit(int c)
+{
+	if (!(c >= '0' && c <= '9'))
+		return (0);
+	return (1);
+}

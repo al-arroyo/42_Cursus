@@ -6,14 +6,15 @@
 /*   By: alarroyo <alarroyo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 16:22:26 by alarroyo          #+#    #+#             */
-/*   Updated: 2023/03/18 16:43:55 by alarroyo         ###   ########.fr       */
+/*   Updated: 2023/04/01 12:41:18 by alarroyo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft.h"
 
 char	*ft_case(char c);
-void	ft_printer(char c, char *hex_buffer);
+void	ft_printer(char *hex_buffer);
 
 int	ft_print_hex(char c, va_list args)
 {
@@ -24,45 +25,43 @@ int	ft_print_hex(char c, va_list args)
 
 	i = 0;
 	hex_digits = ft_case(c);
+	hex_buffer = NULL;
 	n = va_arg(args, unsigned int);
 	while (n > 0)
 	{
 		hex_buffer[i] = hex_digits[n % 16];
 		n /= 16;
 	}
-	ft_printer(c, hex_buffer);
-	return (ft_strlen(hex_buffer));
+	ft_printer(hex_buffer);
+	return (1);
 }
 
 char	*ft_case(char c)
 {
 	char	*hex_digits;
 
+	ft_putchar_fd('0', 1);
 	if (c == 'x')
 	{
 		hex_digits = "0123456789abcdef";
+		ft_putchar_fd('x', 1);
 	}
 	else
+	{
 		hex_digits = "0123456789ABCDEF";
+		ft_putchar_fd('X', 1);
+	}
 	return (hex_digits);
 }
 
-void	ft_printer(char c, char *hex_buffer)
+void	ft_printer(char *hex_buffer)
 {
-	if (c == 'x')
+	size_t	i;
+
+	i = 0;
+	while (hex_buffer[i])
 	{
-		ft_putchar_fd("0x", 1);
-		while (hex_buffer)
-		{
-			ft_putchar_fd(hex_buffer, 1);
-		}
-	}
-	else
-	{
-		ft_putchar_fd("0X", 1);
-		while (hex_buffer)
-		{
-			ft_putchar_fd(hex_buffer, 1);
-		}
+		ft_putchar_fd(hex_buffer[i], 1);
+		i++;
 	}
 }
