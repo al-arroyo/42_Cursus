@@ -6,13 +6,12 @@
 /*   By: alarroyo <alarroyo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 16:07:58 by alarroyo          #+#    #+#             */
-/*   Updated: 2023/04/01 15:15:09 by alarroyo         ###   ########.fr       */
+/*   Updated: 2023/06/05 20:01:00 by alarroyo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "libft.h"
-
+#include "../include/libft.h"
+#include "../include/ft_printf.h"
 size_t	ft_c_digits(unsigned int n);
 size_t	ft_len(int n);
 

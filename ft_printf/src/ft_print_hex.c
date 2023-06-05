@@ -6,12 +6,12 @@
 /*   By: alarroyo <alarroyo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 16:22:26 by alarroyo          #+#    #+#             */
-/*   Updated: 2023/04/01 12:41:18 by alarroyo         ###   ########.fr       */
+/*   Updated: 2023/06/05 20:01:10 by alarroyo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "libft.h"
+#include "../include/libft.h"
+#include "../include/ft_printf.h"
 
 char	*ft_case(char c);
 void	ft_printer(char *hex_buffer);

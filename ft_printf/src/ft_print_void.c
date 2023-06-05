@@ -6,12 +6,12 @@
 /*   By: alarroyo <alarroyo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 16:07:03 by alarroyo          #+#    #+#             */
-/*   Updated: 2023/04/01 12:26:01 by alarroyo         ###   ########.fr       */
+/*   Updated: 2023/06/05 20:01:29 by alarroyo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "libft.h"
+#include "../include/libft.h"
+#include "../include/ft_printf.h"
 
 size_t	ft_count_d(unsigned int n);
 

@@ -6,12 +6,12 @@
 /*   By: alarroyo <alarroyo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 11:33:56 by alarroyo          #+#    #+#             */
-/*   Updated: 2023/04/01 12:41:59 by alarroyo         ###   ########.fr       */
+/*   Updated: 2023/06/05 20:00:50 by alarroyo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "libft.h"
+#include "../include/libft.h"
+#include "../include/ft_printf.h"
 
 int	ft_control(va_list args, const char c);
 
